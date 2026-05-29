@@ -1,0 +1,31 @@
+/*
+While surfing in web I found interesting math problem called "Always perfect".
+That means if you add 1 to the product of four consecutive numbers the answer is ALWAYS a perfect square.
+For example we have: 1,2,3,4 and the product will be 1X2X3X4=24. If we add 1 to the product that would become 25,
+since the result number is a perfect square the square root of 25 would be 5.
+So now lets write a function which takes numbers separated by commas in string format and returns the number which 
+is a perfect square and the square root of that number.
+If string contains other characters than number or it has more or less than 4 numbers separated by comma function returns
+"incorrect input".
+If string contains 4 numbers but not consecutive it returns "not consecutive".
+*/
+function checkRoot(string){
+//your code here
+  //1. turn the string code into numbers.
+  //2. check whether every character is a number type. returns incorrect input if not.
+  //3. check the numbers whether they are consecutively. return not consecutive
+  //4. check the length of the character if they are 4.
+  let nums = string.split(",").map((num)=>Number(num)).sort((a,b)=> a-b);
+
+  if (nums.length !== 4 || nums.includes('')){
+    return 'incorrect input';
+  }
+
+  for(let i=1; i<nums.length;i++){
+    if(nums[i] !== nums[i - 1] + 1){
+        return 'not consecutive';
+    }
+  }  
+  return `${nums.reduce((val, acc)=> val*acc,1)+1}, ${Math.sqrt(nums.reduce((val, acc)=> val*acc,1)+1)}`;
+}
+console.log(checkRoot("73,70,71,72"));
