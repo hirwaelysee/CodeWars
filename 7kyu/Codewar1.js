@@ -17,7 +17,7 @@ function checkRoot(string){
   //4. check the length of the character if they are 4.
   let nums = string.split(",").map((num)=>Number(num)).sort((a,b)=> a-b);
 
-  if (nums.length !== 4 || nums.includes('')){
+  if (nums.length !== 4 || nums.some(Number.isNaN)){
     return 'incorrect input';
   }
 
@@ -25,7 +25,7 @@ function checkRoot(string){
     if(nums[i] !== nums[i - 1] + 1){
         return 'not consecutive';
     }
-  }  
+  } 
   return `${nums.reduce((val, acc)=> val*acc,1)+1}, ${Math.sqrt(nums.reduce((val, acc)=> val*acc,1)+1)}`;
 }
-console.log(checkRoot("73,70,71,72"));
+console.log(checkRoot("0,2,2,5"));
