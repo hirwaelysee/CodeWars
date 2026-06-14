@@ -27,4 +27,4 @@ function minPermutation(n) {
     return Number(n.join(""));
     
 }
-console.log(minPermutation(013));
+console.log(minPermutation(13));
