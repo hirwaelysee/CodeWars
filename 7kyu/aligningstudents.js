@@ -12,7 +12,7 @@ Here is an example input:
 string = 'Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi'
 Here is an example return from your function:
 
- lst = ['Takehiko',
+lst = ['Takehiko',
         'Takayuki',
         'Takahiro',
         'Takeshi',
@@ -30,7 +30,12 @@ Returns
 */
 function lineupStudents(students){
   //your code here
-  return students.split(" ").sort();
+  return students.split(" ").sort((a,b)=>{
+    if(b.length != a.length){
+      return b.length-a.length;
+    }
+      return b.localeCompare(a);
+  });
 }
 console.log(lineupStudents('Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi'));
 // Not yet finished!!!
