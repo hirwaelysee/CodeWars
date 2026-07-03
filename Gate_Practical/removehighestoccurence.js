@@ -26,7 +26,7 @@ function removeHighestOccurrence(arr){
             highestValue = obj[key];
         }
     }
-    return arr.filter((item)=> item !== highestValue);
+    return arr.filter((item)=> obj[item] !== highestValue);
 
 }
 console.log(removeHighestOccurrence([1, 2, 2, 3, 4, 4, 5]))
