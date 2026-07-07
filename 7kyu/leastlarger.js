@@ -29,6 +29,6 @@ leastLarger( [4, 1, 3, 5, 6], 4 )  => -1
    }else{
       return a.findIndex((index)=> index === greaterElement)
    }
-      return a.findIndex((index)=> index === greaterElement)
+   return a.findIndex((index)=> index === greaterElement)
 }
 console.log(leastLarger([1, 3, 5, 2, 4], 0));
