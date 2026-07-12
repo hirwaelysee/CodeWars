@@ -82,8 +82,13 @@ function formatDuration(seconds){
         results.push(`${second} seconds`)
     }
 
-    if(results.length === 1) return results.toString().trim()
-    if(results.length === 2) return results.join(' and ').trim()
-    if(results.length > 2) return (results.slice(0,results.length-1).join(', ')+" and "+results[results.length -1]).trim();
+    return results.length === 1 
+           ? results[0]
+           :results.length === 2
+           ?results.join(' and ').trim()
+           :(results.slice(0,results.length-1).join(', ')+" and "+results[results.length -1]).trim() 
+    // if(results.length === 1) return results.toString().trim()
+    // if(results.length === 2) return results.join(' and ').trim()
+    // if(results.length > 2) return (results.slice(0,results.length-1).join(', ')+" and "+results[results.length -1]).trim();
 }
 console.log(formatDuration(62))
