@@ -18,7 +18,6 @@ Examples: (Input --> Output)
 18 --> "drink beer"
 20 --> "drink beer"
 30 --> "drink whisky"
-
 */
 function peopleWithAgeDrink(old) {
   if(old < 14) return 'drink toddy';
