@@ -11,9 +11,7 @@ function minPermutation(n) {
     if(n[0] === '-'){
         sign = n.shift();
     }
-    
     n = n.map(Number).sort((a,b)=> a-b);
-    
     if(n[0] === 0){
         let index = n.findIndex(num=>num !== 0);
 
