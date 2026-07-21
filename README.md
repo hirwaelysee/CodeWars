@@ -1,4 +1,4 @@
-# 🚀 Codewars Journey
+# Codewars Journey
 
 Welcome to my Codewars repository!
 
@@ -6,7 +6,7 @@ This repository contains my JavaScript solutions to Codewars challenges. I creat
 
 Each kata is an opportunity to learn something new, whether it's discovering a better approach, writing cleaner code, or exploring JavaScript features I haven't used before.
 
-## 🎯 Goals
+##  Goals
 
 - Improve problem-solving skills
 - Master JavaScript fundamentals
