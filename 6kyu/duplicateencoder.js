@@ -14,6 +14,7 @@ encode XXX", the "XXX" is the expected result, not the input!
 */
 function duplicateEncode(word){
   word= word.toLowerCase().split('');
+  let receiver = [...word];
   for(let i=0; i<word.length; i++){
     let count = 0;
     for(let j=0; j<word.length; j++){
@@ -22,11 +23,11 @@ function duplicateEncode(word){
         }
     }
     if(count>1){
-      word[i] = ')';
+      receiver[i] = ')';
     }else{
-      word[i] = '(';
+      receiver[i] = '(';
     }
   } 
-  return word.join('');
+  return receiver.join('');
 }
 console.log(duplicateEncode('Success'))
