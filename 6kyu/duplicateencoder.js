@@ -12,22 +12,32 @@ Notes
 Assertion messages may be unclear about what they display in some languages. If you read "...It Should
 encode XXX", the "XXX" is the expected result, not the input!
 */
+// function duplicateEncode(word){
+//   word= word.toLowerCase().split('');
+//   let receiver = [...word];
+//   for(let i=0; i<word.length; i++){
+//     let count = 0;
+//     for(let j=0; j<word.length; j++){
+//         if(word[i] == word[j]){
+//           count++;
+//         }
+//     }
+//     if(count>1){
+//       receiver[i] = ')';
+//     }else{
+//       receiver[i] = '(';
+//     }
+//   } 
+//   return receiver.join('');
+// }
 function duplicateEncode(word){
-  word= word.toLowerCase().split('');
-  let receiver = [...word];
-  for(let i=0; i<word.length; i++){
-    let count = 0;
-    for(let j=0; j<word.length; j++){
-        if(word[i] == word[j]){
-          count++;
-        }
-    }
-    if(count>1){
-      receiver[i] = ')';
-    }else{
-      receiver[i] = '(';
-    }
-  } 
-  return receiver.join('');
+  return word
+    .toLowerCase()
+    .split('')
+    .map((item, index, arr)=>{
+       return arr.indexOf(item) === arr.lastIndexOf(item)? '(':')';
+    })
+    .join('')
 }
+
 console.log(duplicateEncode('Success'))
