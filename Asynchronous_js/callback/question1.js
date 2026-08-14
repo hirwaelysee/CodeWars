@@ -3,12 +3,13 @@
 using a callback to print each number.
 
 */
-function counter(callback) {
+function printNumber(num){
+    console.log(num);
+}
+function counter() {
     // Your code here
     for(let i=1; i<=5;i++){
-        setTimeout(()=>{
-            console.log(`${i}`);
-        },1000)
+        setTimeout(printNumber,1000,i)
     }
 }
 
