@@ -1,5 +1,7 @@
 /*
-The rgb function is incomplete. Complete it so that passing in RGB decimal values will result in a hexadecimal representation being returned. Valid decimal values for RGB are 0 - 255. Any values that fall out of that range must be rounded to the closest valid value.
+The rgb function is incomplete. Complete it so that passing in RGB decimal values will
+result in a hexadecimal representation being returned. Valid decimal values for RGB are 0 - 255. 
+Any values that fall out of that range must be rounded to the closest valid value.
 
 Note: Your answer should always be 6 characters long, the shorthand with 3 will not work here.
 
@@ -17,5 +19,6 @@ function rgb(r, g, b) {
     r = r.toString(16).toUpperCase();
     g= g.toString(16).toUpperCase();
     b= b.toString(16).toUpperCase();
-    return `${String(r).padStart('2',0)}${String(g).padStart('2',0)}${String(b).padStart('2',0)}`;
+    return `${String(r).padStart(2,'0')}${String(g).padStart(2,'0')}${String(b).padStart(2,'0')}`;
 }
+console.log(rgb(255,255,255));
