@@ -18,3 +18,4 @@ function humanReadable (seconds) {
     
     return `${String(hours).padStart(2,"0")}:${String(min).padStart(2,"0")}:${String(sec).padStart(2,"0")}`
 }
+console.log(humanReadable(42000));
