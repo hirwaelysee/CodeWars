@@ -11,3 +11,5 @@ const student = {
 };
 
 getStudentInfo(student) // should return "Student Alice is studying Mathematics."
+
+//applies the use of destructuring
