@@ -43,9 +43,7 @@ const getData = () =>{
             return;
          }
 
-         // console.log(data.Search);
-
-         appendData(data.Search);       
+         appendData(data.Search);
          
       } catch (err) {
             console.error(err);

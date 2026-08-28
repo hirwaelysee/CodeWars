@@ -3,16 +3,16 @@
 after 1 second, based on a random condition.
 */
 
-const receiver = new Promise((resolve, reject)=>{
+const receiver = new Promise((onfulfilled, onrejected)=>{
     let a = 10;
     let b = 10;
     if(a == b){
         setTimeout(()=>{
-            resolve(`a is equal to b`);
+            onfulfilled(`a is equal to b`);
         },1000)
     }else{
         setTimeout(()=>{
-            reject(`Error: a is not equal to b`);
+            onrejected(`Error: a is not equal to b`);
         },1000)
     }
 })
