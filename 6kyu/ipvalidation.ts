@@ -18,19 +18,22 @@ Inputs are guaranteed to be a single string
 export function isValidIP(str: string): any{
   
     let receiver = str.split('.').map(Number);
-
-    if(receiver.join('.') != str) return false
-
-    if(receiver.some(item => isNaN(item)) || receiver.length != 4){
-      return false
-    }
     
-    if(receiver.every(item => item == 0)) return true;
-
-    let handler: boolean[] = receiver.map((item)=>{
-      if(item > 255 && item <0) return false
+    if(receiver.join('.') != str) return false;
+  
+    let handler: boolean[] = receiver.map((item,_, arr)=>{
       
-      if(item.toString().startsWith('0')) return false
+      if(arr.join('.') != str) return false  
+
+      if(arr.some(item => isNaN(item)) || arr.length != 4){
+        return false
+      }
+
+      if(receiver.every(item => item == 0)) return true;
+      
+      if(item > 255 || item < 0) {
+        return false
+      }
       
       return true; 
     })
