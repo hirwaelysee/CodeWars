@@ -13,18 +13,119 @@ Words will be separated by exactly one space and there will be no leading or tra
 
 
 */
-function insideOut(x){
-  x = x.split(' ');
+// function insideOut(x){
+//   x = x.split(' ');
+//   let handler = []
   
-  for(let [index,item] of x.entries()){
-    const receiver = item.split('');
+//   for(let [index,item] of x.entries()){
+//     let receiver = item.split('');
     
-    if(receiver.length % 2 != 0){
-        let firstPart = receiver.slice(0, receiver.length/2);
-        let secondPart = receiver.slice(receiver.length/2+1);
-        return secondPart
-    }
+//     if(receiver.length % 2 != 0){
+//         let middle = receiver[Math.floor(receiver.length/2)];
 
+//         let firstPart = receiver.slice(0, Math.floor(receiver.length/2))
+
+//         firstPart.forEach((el,index,arr)=> {
+//           if(index < Math.floor(firstPart.length/2)){
+//             let swap = arr[index];
+//             arr[index] = arr[(arr.length-1)-index];
+//             arr[(firstPart.length-1)-index] = swap;
+//           }
+//         });
+
+//         let secondPart = receiver.slice( Math.floor(receiver.length/2)+1);
+        
+//         secondPart.forEach((el,index,arr)=> {
+//           if(index < Math.floor(secondPart.length/2)){
+//             let swap = arr[index];
+//             arr[index] = arr[(arr.length-1)-index];
+//             arr[(secondPart.length-1)-index] = swap;
+//           }
+//         });
+
+//         receiver = [...firstPart,middle,...secondPart].join('');
+//         handler.push(receiver)
+//     }
+//     else{
+//         let firstPart = receiver.slice(0, receiver.length/2);
+
+//         firstPart.forEach((item,index,arr)=>{
+//           if(index < Math.floor(firstPart.length/2)){
+//             let swap = arr[index];
+//             arr[index] = arr[(arr.length-1) - index];
+//             arr[(arr.length-1) - index] = swap
+//           }
+//         })
+//         let secondPart = receiver.slice(receiver.length/2)
+
+//         secondPart.forEach((item,index,arr)=>{
+//           if(index < Math.floor(firstPart.length/2)){
+//             let swap = arr[index];
+//             arr[index] = arr[(arr.length-1) - index];
+//             arr[(arr.length-1) - index] = swap
+//           }
+//         })
+        
+//         receiver = [...firstPart,...secondPart].join('')
+//         handler.push(receiver)
+//     }
+//   }
+//   return handler.join(' ')
+// }
+function insideOut(x){
+
+  return x.split(' ').map((item)=>{
+
+      let receiver = item.split('');
+    
+      if(receiver.length % 2 != 0){
+        let middle = receiver[Math.floor(receiver.length/2)];
+
+        let firstPart = receiver.slice(0, Math.floor(receiver.length/2))
+
+        firstPart.forEach((_,index,arr)=> {
+          if(index < Math.floor(firstPart.length/2)){
+            let swap = arr[index];
+            arr[index] = arr[(arr.length-1)-index];
+            arr[(firstPart.length-1)-index] = swap;
+          }
+        });
+
+        let secondPart = receiver.slice( Math.floor(receiver.length/2)+1);
+        
+        secondPart.forEach((_,index,arr)=> {
+          if(index < Math.floor(secondPart.length/2)){
+            let swap = arr[index];
+            arr[index] = arr[(arr.length-1)-index];
+            arr[(secondPart.length-1)-index] = swap;
+          }
+        });
+
+        return [...firstPart,middle,...secondPart].join('');
+    }
+    else{
+        let firstPart = receiver.slice(0, receiver.length/2);
+
+        firstPart.forEach((item,index,arr)=>{
+          if(index < Math.floor(firstPart.length/2)){
+            let swap = arr[index];
+            arr[index] = arr[(arr.length-1) - index];
+            arr[(arr.length-1) - index] = swap
+          }
+        })
+        
+        let secondPart = receiver.slice(receiver.length/2)
+
+        secondPart.forEach((item,index,arr)=>{
+          if(index < Math.floor(firstPart.length/2)){
+            let swap = arr[index];
+            arr[index] = arr[(arr.length-1) - index];
+            arr[(arr.length-1) - index] = swap
+          }
+        })
+        
+        return [...firstPart,...secondPart].join(' ')
   }
+  }).join(' ')
 }
-console.log(insideOut("man i need a taxi up to ubud"))
+console.log(insideOut("abcd i need a taxi up to ubud"))
