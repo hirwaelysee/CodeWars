@@ -1,30 +1,35 @@
 class CaesarCipher{
-  CaesarCipher(num){
+
+  constructor(num){
     this.num = num;
   }
   
-  encoder(receiver){
-    receiver = receiver.toUpperCase();
+  encode(receiver){
+    receiver = receiver.toLowerCase();
     
     return receiver.split('').map((item)=>{
-        if(item >= 'A' && item<= 'Z'){ 
-           return item = String.fromCharCode((item.charCodeAt(0))+ this.num).toUpperCase();
+        if(item >= 'a' && item<= 'z'){  
+           return item = String.fromCharCode(
+             (((item.charCodeAt(0)- 97)+ this.num)%26)+97)
+             .toUpperCase(); 
         }
         return item;
     }).join('');
   }
   
-  decoder(handler){
-    handler = handler.toLowerCase();
+  decode(handler){
+    handler = handler.toUpperCase();
     return handler.split('').map((item)=>{
-       if(item>=a && item<=z){
-         return String.fromCharCode((item.charCodeAt(0))-this.num).toUpperCase();
+       if(item>='A' && item<='Z'){
+          return String.fromCharCode(
+            (((item.charCodeAt(0)- 65 - this.num)%26+26)%26)+65)
+            .toUpperCase(); 
        }
       return item;
     }).join('')
   }
 }
 
-const obj = new CaesarCipher(6);
-console.log(obj.encoder('Codewars'));
-console.log(obj.encoder('BFKKQJX'));
+const obj = new CaesarCipher(5);
+console.log(obj.encode('Codewars'));// output should be HTIJBFWX
+console.log(obj.decode('HTIJBFWX'));// output should be WAFFLES
